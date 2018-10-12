@@ -27,23 +27,23 @@ class Search extends Component {
         super(props);
         this.state = {
             value: "",
-            elementHidden: true
+            elementShow: false
         };
     }
 
     handleChange = (event) => {
         this.setState({value: event.target.value});
-        this.setState({elementHidden: event.target.value === ""});
+        this.setState({elementShow: event.target.value === ""});
     };
 
     render() {
-        const {value, elementHidden} = this.state;
+        const {value, elementShow} = this.state;
 
         return (
             <div className="search">
                 <label htmlFor="search">Поиск города</label>
                 <input id="search" type="text" value={value} onChange={this.handleChange}/>
-                {!elementHidden && <Autocomplete value={value}/>}
+                {elementShow && <Autocomplete value={value}/>}
             </div>
         );
     }
