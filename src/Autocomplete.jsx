@@ -1,16 +1,12 @@
 import React, {Component} from "react";
 
 
-const city = ["Москва", "москвская обл", "Рязань", "ростов", "Тверь", "Казань"];
+const city = ["Москва", "москвская обл", "Рязань", "ростов", "растов", "Тверь", "Великий Новгород", "Казань"];
 
 
 function searchingFor(value) {
     return function (item) {
-        if (value.length <= 1) {
-            return item.toLowerCase().substring(0, 1) === value.toLowerCase().substring(0, 1);
-        } else {
-            return item.toLowerCase().includes(value.toLowerCase());
-        }
+        return item.toLowerCase().substring(0, value.length) === value.toLowerCase().substring(0, value.length);
     }
 }
 
