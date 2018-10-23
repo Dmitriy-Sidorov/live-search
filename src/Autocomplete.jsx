@@ -10,7 +10,7 @@ class Autocomplete extends Component {
     searchingFor = (value) => {
         return (city) => {
             console.log(city);
-            return city.toLowerCase().substring(0, value.length) === value.toLowerCase().substring(0, value.length);
+            return city.toLowerCase().substring(0, value.length) === value.toLowerCase();
         }
     }
 
