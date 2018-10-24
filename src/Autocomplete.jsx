@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import SearchField from "./SearchField.jsx";
 import DropdownList from "./DropdownList.jsx";
 
-const city = [
+const cities = [
   "Москва",
   "москвская обл",
   "Рязань",
@@ -16,34 +16,26 @@ class SearchFild extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      city: city,
       value: "",
       elementShow: false
     };
   }
 
-  handleChange = event => {
+  handleChange = (event) => {
     this.setState({
       value: event.target.value,
       elementShow: event.target.value !== ""
     });
   };
 
-  searchingFor = value => {
-    return city => {
-      return (
-        city.toLowerCase().substring(0, value.length) === value.toLowerCase()
-      );
-    };
-  };
-
   render() {
-    const { city, value, elementShow } = this.state;
+    const { value, elementShow } = this.state;
+    const dropdownOptions = cities.filter((oneCity) => oneCity.toLowerCase().substring(0, value.length) === value.toLowerCase());
 
     return (
       <div className="search">
         <SearchField value={value} function={this.handleChange} />
-        {elementShow && <DropdownList value={value} city={city} function={this.searchingFor(value)} />}
+        {elementShow && <DropdownList value={value} dropdownOptions={dropdownOptions} />}
       </div>
     );
   }
