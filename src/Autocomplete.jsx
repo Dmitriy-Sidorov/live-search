@@ -1,29 +1,52 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
+import SearchField from "./SearchField.jsx";
+import DropdownList from "./DropdownList.jsx";
 
-const city = ["Москва", "москвская обл", "Рязань", "ростов", "растов", "Тверь", "Великий Новгород", "Казань"];
-
-class Autocomplete extends Component {
-    state = {
-        city: city
+const city = [
+  "Москва",
+  "москвская обл",
+  "Рязань",
+  "ростов",
+  "растов",
+  "Тверь",
+  "Великий Новгород",
+  "Казань"
+];
+class SearchFild extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      city: city,
+      value: "",
+      elementShow: false
     };
+  }
 
-    searchingFor = (value) => {
-        return (city) => {
-            console.log(city);
-            return city.toLowerCase().substring(0, value.length) === value.toLowerCase();
-        }
-    }
+  handleChange = event => {
+    this.setState({
+      value: event.target.value,
+      elementShow: event.target.value !== ""
+    });
+  };
 
-    render() {
-        const {city} = this.state;
-        return (
-            <div className="podskazka">
-                {city.filter(this.searchingFor(this.props.value)).map((city, index) => (
-                    <div key={index}>{city}</div>
-                ))}
-            </div>
-        );
-    }
+  searchingFor = value => {
+    return city => {
+      return (
+        city.toLowerCase().substring(0, value.length) === value.toLowerCase()
+      );
+    };
+  };
+
+  render() {
+    const { city, value, elementShow } = this.state;
+
+    return (
+      <div className="search">
+        <SearchField value={value} function={this.handleChange} />
+        {elementShow && <DropdownList value={value} city={city} function={this.searchingFor(value)} />}
+      </div>
+    );
+  }
 }
 
-export default Autocomplete;
+export default SearchFild;

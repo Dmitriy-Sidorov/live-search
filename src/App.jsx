@@ -1,11 +1,11 @@
 import React, {Component} from "react";
 import "./App.css";
-import Search from './Search.jsx';
+import Autocomplete from './Autocomplete.jsx';
 
 class App extends Component {
     render() {
         return (
-            <Search/>
+            <Autocomplete/>
         );
     }
 }
