@@ -22,7 +22,6 @@ class Autocomplete extends Component {
     }
 
     handleChange = (event) => {
-        console.log(event.target.value);
         this.setState({
             valueItem: event.target.value,
         });
@@ -33,9 +32,9 @@ class Autocomplete extends Component {
         const dropDownOptions = items.filter((item) => item.toLowerCase().substring(0, valueItem.length) === valueItem.toLowerCase());
 
         return (
-            <div className="search">
+            <div className="autocomplete">
                 <SearchField value={valueItem} onChange={this.handleChange}/>
-                {valueItem && (dropDownOptions !== "") && <DropDownList value={valueItem} dropDownOptions={dropDownOptions}/>}
+                {valueItem && <DropDownList  dropDownOptions={dropDownOptions}/>}
             </div>
         );
     }

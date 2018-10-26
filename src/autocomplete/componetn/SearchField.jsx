@@ -2,14 +2,14 @@ import React from 'react';
 
 const SearchField = (props) => {
     return (
-        <div className="searchfield">
-            <input
-                id="search"
-                type="text"
-                value={props.value}
-                onChange={props.onChange}
-            />
-        </div>
+        <input
+            className="search-field form-control"
+            id="search"
+            type="text"
+            placeholder="Поиск по списку"
+            value={props.value}
+            onChange={props.onChange}
+        />
     );
 };
 

@@ -1,0 +1,14 @@
+.drop-down-list {
+    border: 1px rgb(238, 238, 238) solid;
+    border-top: none;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+    margin: 0;
+    position: absolute;
+    padding: 7px;
+    top: 50px;
+    width: 100%;
+    z-index: 9999;
+    flex: 0 0 auto;
+    max-width: 300px;
+}
