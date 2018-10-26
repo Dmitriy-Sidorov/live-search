@@ -1,0 +1,261 @@
+/* ==========================================================================
+   #BUTTONS
+   ========================================================================== */
+
+/**
+ * This is an example component. Extend inuitcss by building your own components
+ * that make up your UI. Component classes are prefixed with a `c-`.
+ */
+
+/**
+ * 1. Allow us to style box model properties.
+ * 2. Line different sized buttons up a little nicer.
+ * 3. Make buttons inherit font styles (often necessary when styling `input`s as
+ *    buttons).
+ * 4. Reset/normalize some styles.
+ * 5. Force all button-styled elements to appear clickable.
+ */
+
+.button {
+	display: inline-block;
+	/* [1] */
+	vertical-align: middle;
+	/* [2] */
+	font: inherit;
+	/* [3] */
+	text-align: center;
+	/* [4] */
+	margin: 0;
+	/* [4] */
+	cursor: pointer;
+	/* [5] */
+	padding: 0.88em 1.5em 1em;
+	transition: $global-transition;
+	border-radius: $global-radius;
+	line-height: 1;
+	border: none;
+}
+
+.button--block {
+	display: block;
+	width: 100%;
+}
+
+/* Style variants
+   ========================================================================== */
+
+.button--primary {
+	background-color: $color-primary;
+	&,
+	&:hover,
+	&:active,
+	&:focus {
+		text-decoration: none;
+		/* [4] */
+		color: #fff;
+	}
+	&:hover,
+	&:focus {
+		background-color: darken($color-primary, 7%);
+	}
+}
+
+.button--secondary {
+	background-color: $color-secondary;
+	&,
+	&:hover,
+	&:active,
+	&:focus {
+		text-decoration: none;
+		color: #fff;
+	}
+	&:hover,
+	&:focus {
+		background-color: darken($color-secondary, 15%);
+	}
+}
+
+.button--tertiary {
+	background-color: #fff;
+	color: #4a8ec2;
+	&,
+	&:hover,
+	&:active,
+	&:focus {
+		text-decoration: none;
+		color: #4a8ec2;
+	}
+	&:hover,
+	&:focus {
+		color: #3774a2;
+	}
+}
+
+.button--white {
+	background-color: #fff;
+	color: #bd2d28;
+	&,
+	&:hover,
+	&:active,
+	&:focus {
+		text-decoration: none;
+		color: #bd2d28;
+	}
+	&:hover,
+	&:focus {
+		color: #bd2d28;
+		background: #fff3f3;
+	}
+}
+
+.button--copper {
+	background: #a88e56;
+	color: #fff;
+	&,
+	&:hover,
+	&:active,
+	&:focus {
+		text-decoration: none;
+		color: #fff;
+	}
+	&:hover,
+	&:focus {
+		color: #fff;
+		background: #846f44;
+	}
+}
+
+.button--custom {
+	background: $button;
+	color: $button-color;
+	//box-shadow: 0px 0px 13px $button;
+	border-radius: 0;
+	//border: 1px solid $button;
+	padding: 1.176em 1.471em;
+	font-family: $font-family-copy;
+
+	line-height: 1;
+	font-weight: normal;
+	white-space: nowrap;
+	&,
+	&:hover,
+	&:active,
+	&:focus {
+		text-decoration: none;
+		color: $button-color;
+		outline: none;
+	}
+	&:hover,
+	&:focus {
+		color: $button-color;
+		background: $button-hover;
+		//border-color: $button-hover;
+		//box-shadow: 0px 0px 15px $button-hover;
+		outline: none;
+	}
+}
+
+.button-mobile {
+	box-shadow: 0 3px 10px 0px rgba(0, 0, 0, 0.7);
+	cursor: pointer;
+	z-index: 1;
+	transition: background 2s;
+
+	&--active {
+		box-shadow: none;
+		background: #9d1907;
+	}
+
+	&__item {
+		padding: 18px 28px;
+	}
+
+	&--left {
+	}
+
+	&--right {
+	}
+}
+
+.button--callback {
+	padding: 0.5em 0;
+	width: 100%;
+	max-width: 218px;
+}
+
+/* Size variants
+   ========================================================================== */
+
+.button--small {
+	padding: $inuit-global-spacing-unit-tiny $inuit-global-spacing-unit-small;
+}
+
+.button--large {
+	padding: $inuit-global-spacing-unit $inuit-global-spacing-unit-large;
+}
+
+/* Ghost buttons
+   ========================================================================== */
+
+/**
+ * Ghost buttons have see-through backgrounds and are bordered.
+ */
+
+$btn-ghost-border-width: 2px;
+.c-btn--ghost {
+	border: $btn-ghost-border-width solid currentColor;
+	padding: ($inuit-global-spacing-unit-small - $btn-ghost-border-width)
+		($inuit-global-spacing-unit - $btn-ghost-border-width);
+	&,
+	&:hover,
+	&:active,
+	&:focus {
+		background: none;
+	}
+	&.c-btn--small {
+		padding: ($inuit-global-spacing-unit-tiny - $btn-ghost-border-width)
+			($inuit-global-spacing-unit-small - $btn-ghost-border-width);
+	}
+	&.c-btn--large {
+		padding: ($inuit-global-spacing-unit - $btn-ghost-border-width)
+			($inuit-global-spacing-unit-large - $btn-ghost-border-width);
+	}
+	&.c-btn--primary {
+		color: #4a8ec2;
+		&:hover,
+		&:focus {
+			color: #3774a2;
+		}
+	}
+	&.c-btn--secondary {
+		color: #2f4054;
+		&:hover,
+		&:focus {
+			color: #1d2733;
+		}
+	}
+	&.c-btn--tertiary {
+		color: #fff;
+		&:hover,
+		&:focus {
+			color: #fff;
+		}
+	}
+}
+
+.ghost-button--white {
+	color: #fff;
+	border: 1px solid #fff;
+	&,
+	&:hover,
+	&:active,
+	&:focus {
+		text-decoration: none;
+		color: #fff;
+	}
+	&:hover,
+	&:focus {
+		color: #bd2d28;
+		background: #fff;
+	}
+}
