@@ -1,11 +1,10 @@
 import React, {Component} from "react";
-import "./App.css";
-import Autocomplete from './Autocomplete.jsx';
+import Autocomplete from './autocomplete/Autocomplete.jsx';
 
 class App extends Component {
     render() {
         return (
-            <Autocomplete/>
+            <Autocomplete />
         );
     }
 }
